@@ -30,3 +30,17 @@ query <- paste0("?page=1&per_page=10&output=json&api_key=", api_key)
 resource_uri <- paste0(base_uri, endpoint, query)
 
 response <- GET(resource_uri)
+body <- content(response, "text")
+body.data <- fromJSON(body)
+body.df <- flatten(body.data$results)
+
+## Questions
+## What are the possible discrepancies between major historical event and hate crimes in the past two decades?
+
+## Does the frequency of hate crimes and the type vary depending on geological location?
+
+## Compare and contrast the frequency of anti-Muslim hate crimes to those of anti-Christian and anti-Catholic
+## hate crimes throughout the country from 1995 to 2005. 
+
+## Compare the frequency of anti-LGBTQ hate crimes after the Defense of Marriage Act in 1996.
+
