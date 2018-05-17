@@ -10,6 +10,12 @@ library(jsonlite)
 # https://api.data.gov/signup/ 
 source("api-key.R")
 
+# Another helpful csv 
+# Documentation : https://crime-data-explorer.fr.cloud.gov/downloads-and-docs
+# Only up to 2014
+hate.csv <- read.csv(file = "data/hate_crime.csv", stringsAsFactors = FALSE)
+
+
 # This is the documentation of the Crime Explorer
 # https://crime-data-explorer.fr.cloud.gov/api 
 # This API is useful because you don't have to continuously change uri manually.
