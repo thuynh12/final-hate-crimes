@@ -1,4 +1,7 @@
 library(shiny)
+library(leaflet) # it's tracy's plz don't mind
+library(geojson) # tracy's
+library(geojsonio) # tracy's
 
 source("analysis.R")
 
@@ -13,8 +16,22 @@ ui <- fluidPage(
       h3("Everyone")
     ),
     tabPanel(
-      "Mapping Hate Crimes",
-      h3("Tracy's")
+      "Tracy's Mapping Hate Crimes",
+      sidebarLayout(
+        sidebarPanel(
+          h3("Sections"),
+          selectInput(
+            'select_bias',
+            label = "Select Bias",
+            choices = unique(hate.crimes$bias_motivation)
+          )
+          
+        ),
+        mainPanel(
+          
+          
+        )
+      )
     ),
     tabPanel(
       "History and Hate Crime",

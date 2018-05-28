@@ -10,7 +10,9 @@ source("user-interface.R")
 ### AVOID MAKING OTHER'S CODE BREAK.
 my_server <- function(input, output) {
   # Tracy's Server Code
-  
+  map.hate.df <- reactive({
+    
+  })
   
   # Rahma's Code
   
