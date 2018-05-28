@@ -82,33 +82,3 @@ test <- hate.crimes %>%
 
 # Map work
 
-states <- geojsonio::geojson_read("us-states.json", what = "sp")
-
-
-m <- leaflet(states) %>%
-  setView(-96, 37.8, 4) %>%
-  addProviderTiles("MapBox", options = providerTileOptions(
-    id = "mapbox.light",
-    accessToken = Sys.getenv('MAPBOX_ACCESS_TOKEN')))
-
-
-bins <- c(0, 20, 50, 100, 200, 500, Inf)
-
-pal <- colorBin("YlOrRd", domain = hate.crimes$count, bins = bins)
-
-#m %>% addPolygons(
-#  fillColor = ~pal(count),
-#  weight = 2,
-#  opacity = 1,
-#  color = "white",
-#  dashArray = "3",
-#  fillOpacity = 0.7)
-
-
-m %>% addPolygons(
-  fillColor = ~pal(count),
-  weight = 2,
-  opacity = 1,
-  color = "white",
-  dashArray = "3",
-  fillOpacity = 0.7)
