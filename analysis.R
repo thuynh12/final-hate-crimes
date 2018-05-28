@@ -153,5 +153,5 @@ leaflet() %>%
     addLegend(pal = pal, 
               values = merger$count,
               position = "bottomright",
-              title = "Black Hate Crimes 2010")
+              title = "Hate Crimes")
   

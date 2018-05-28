@@ -24,11 +24,16 @@ ui <- fluidPage(
             'select_bias',
             label = "Select Bias",
             choices = unique(hate.crimes$bias_motivation)
+          ),
+          selectInput(
+            'select_year',
+            label = "Select Year",
+            choices = unique(hate.crimes$year)
           )
           
         ),
         mainPanel(
-          
+          leafletOutput('hate_map')
           
         )
       )
