@@ -2,6 +2,9 @@ library(dplyr)
 library(ggplot2)
 library(httr)
 library(jsonlite)
+library(leaflet)
+library(geojson) # tracy's
+library(geojsonio) # tracy's
 
 ### Additional Source For Report : https://ucr.fbi.gov/hate-crime/2015/home 
 
@@ -65,12 +68,17 @@ by.year <- count.by.year(hate.crimes, data.frame(year, hate_crimes = 0))
 
 # Tracy's Section
 
+# Interactive aspects
+# - Sort by Bias
+#   - Drop Down Menu (defaulted)
+# - Sort by Year
+#   - Slider (defaulted)
 
+test <- hate.crimes %>% 
+  filter(bias_motivation == "Anti-Black or African American" & year == 2010)
 
+# - Sort by Range
+#   - Radio buttons?
 
-
-
-
-
-
+# Map work
 
