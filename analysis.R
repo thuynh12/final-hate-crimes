@@ -1,10 +1,7 @@
 library(dplyr)
 library(ggplot2)
-library(httr)
-library(jsonlite)
 library(leaflet)
-library(geojson) # tracy's
-library(geojsonio) # tracy's
+library(tigris)
 
 ### Additional Source For Report : https://ucr.fbi.gov/hate-crime/2015/home 
 
@@ -68,29 +65,7 @@ by.year <- count.by.year(hate.crimes, data.frame(year, hate_crimes = 0))
 
 # Tracy's Section
 
-# Interactive aspects
-# - Sort by Bias
-#   - Drop Down Menu (defaulted)
-# - Sort by Year
-#   - Slider (defaulted)
-
-test <- hate.crimes %>% 
-  filter(bias_motivation == "Anti-Black or African American" & year == 2010)
-
-# - Sort by Range
-#   - Radio buttons?
-
 # Map work
-
-#m <- geojson_read("us-map.geojson", what = "sp")
-#pal <- colorNumeric("viridis", NULL)
-
-#leaflet(data = m) %>% 
-#  addTiles() %>% 
-#  addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-#              fillColor = ~pal(test$count),
-#              label = ~paste0(test$state_postal_abbr, ": ", formatC(test$count, big.mark = ","))) %>% 
-#  addLegend(pal = pal, values = ~test$count, opacity = 1)
 
 
 library(maps)
@@ -118,12 +93,8 @@ list.state[51,] = c("HI", "hawaii")
 list.state <- arrange(list.state, abb)
 
 list.state$polyname <- stringr::str_to_title(list.state$polyname)
-  
 
 new.map <- left_join(hate.crimes, list.state, by = c("state_postal_abbr" = "abb"))
-
-
-library(tigris)
 
 narrow.map <- new.map  %>% 
   filter(bias_motivation == "Anti-Black or African American" & year == 2010)
@@ -138,7 +109,6 @@ merger <- geo_join(states, hate.map, "STUSPS", "state_postal_abbr")
 
 merger <- subset(merger, !is.na(count))
 pal <- colorNumeric("Reds", domain = merger$count)
-
 pop.up <- paste0("Total:", as.character(merger$count))
 
 leaflet() %>%

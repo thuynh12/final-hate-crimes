@@ -33,6 +33,7 @@ ui <- fluidPage(
           
         ),
         mainPanel(
+          h3("Hate Crimes By Bias and Year"),
           leafletOutput('hate_map')
           
         )
