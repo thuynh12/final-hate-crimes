@@ -13,7 +13,19 @@ ui <- fluidPage(
   tabsetPanel(
     tabPanel(
       "Welcome",
-      h3("Everyone")
+      
+      
+      sidebarLayout(
+        sidebarPanel(
+          selectInput('slider_year', label = "Select Year",
+                      choices = unique(hate.crimes$year))
+        ),
+        mainPanel(
+          h3("Overall Look Of Hate Crimes in America", align = 'center'),
+          leafletOutput('overall_map')
+        )
+      )      
+      
     ),
     tabPanel(
       "Tracy's Mapping Hate Crimes",
