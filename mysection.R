@@ -18,34 +18,6 @@ bias_motivation_stats <- summarize(select_groups , mean = mean(count, na.rm = TR
                                    median = median(count, na.rm = TRUE), min = min(count, na.rm = TRUE), 
                                    max = max(count, na.rm = TRUE))
 
-ui <- fluidPage(
-  title = "Hate Crimes by Group from 1991-2014",
-  sidebarLayout(
-    sidebarPanel(
-      conditionalPanel(
-        'input.dataset === "Bias Motivation"',
-        checkboxGroupInput("show_vars", "Columns in selected data to show:",
-                           names(select_groups), selected = names(select_groups))
-      
-    )
-    ),
-    mainPanel(
-      tabsetPanel(
-        id = 'dataset',
-        tabPanel("Bias Motivation", DT::dataTableOutput("mytable1")),
-      ),
-      # Plot interactive parts
-      plotOutput("plot1",
-                 click = "plot_click",
-                 dblclick = "plot_dblclick",
-                 hover = "plot_hover",
-                 brush = "plot_brush",
-                 width = "100%"
-      ),
-      verbatimTextOutput("info"),
-)
-)
-)
 
 server <- function(input, output) {
   
@@ -69,9 +41,8 @@ server <- function(input, output) {
       ggtitle("Number of Hate Crimes from 1991-2014 based on Minority Groups") +
      labs(y = "Count(Number of Single Crimes Committed",
       x = "Year (1991-2014)",
-      fill = "Motivation for Bias"
+      fill = "Motivation for Hate Crimes"
       )
     })
 }
 
-shinyApp(ui, server)
