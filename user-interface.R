@@ -19,7 +19,17 @@ ui <- tagList(
                        choices = unique(hate.crimes$year)), width = 2
         ), 
         mainPanel(
-          h2(textOutput('year_status'), align = 'center'),
+          h1("Overview"),
+          p("The United States Federal Bureau of Investigation holds hate crimes to the highest 
+            priority of the Civil Rights program. The FBI defines hate crimes as criminal offense
+            against a person or property motivated in whole or in part by an offender's bias
+            against a race, religion, disability, sexual orientation, ethnicity, gender, or 
+            gender identity. Hate crimes have distructive impact on communities and families, and
+            the preaching of hatred and intolerance can plant terrorism within the country. The FBI
+            also mentions that hate itself is not a crime, and the FBI must be careful to protect
+            freedom of speech and other civil liberties."),
+          
+          h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map')
           
         )
