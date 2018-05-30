@@ -9,13 +9,13 @@ library(tidyr)
 # Comparing and contrasting the frequency of anti-Muslim hate crimes to those 
 #of anti-Catholic hate crimes.
 
-hate_crime <- read.csv("hate_crime.csv", stringsAsFactors = FALSE)
-View(hate_crime)
+hate.crime <- read.csv("hate_crime.csv", stringsAsFactors = FALSE)
+View(hate.crime)
 
 #Compare the trend of anti-Muslim hate crimes crimes over time. 
 
   #Filtering the data for Muslim only motivated hate crimes
-muslim_motivation <- filter(hate_crime, bias_motivation == c('Anti-Islamic (Muslem)')) %>% 
+muslim_motivation <- filter(hate.crime, bias_motivation == c('Anti-Islamic (Muslem)')) %>% 
   select(c(year, bias_motivation, count)) %>% 
   group_by(year)
 View(muslim_motivation)
@@ -29,7 +29,7 @@ ggplot(muslim_motivation) +
 #Compare the trend of anti-Catholic hate crimes over time.
 
   #Filtering the data for Catholic only motivated hate crimes
-catholic_motivation <- filter(hate_crime, bias_motivation == c('Anti-Catholic')) %>% 
+catholic_motivation <- filter(hate.crime, bias_motivation == c('Anti-Catholic')) %>% 
   select(c(year, bias_motivation, count)) %>% 
   group_by(year)
 View(catholic_motivation)
@@ -43,7 +43,8 @@ ggplot(catholic_motivation) +
 ##Overview
 # The data we have worked with covers information on the amount of hate crimes that happen within the years of
 # 1991 to 2014. We see that there is a major difference in the amount of hate crimes that happened to Muslims
-# and the amount that happened to Catholics. Hate crimes continue to rise in the current political climate as
+# and the amount that happened to Catholics. We also looked at major events and how those affected the rates of 
+# crime towards minority populations. Hate crimes continue to rise in the current political climate as
 # continues research is being done and updated.
 
 #Analysis

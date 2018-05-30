@@ -4,6 +4,7 @@ library(geojson) # tracy's
 library(geojsonio) # tracy's
 
 source("analysis.R")
+source("rahma.kamel.R")
 
 ### TRY TO KEEP THE CODE NEAT. MAKE SURE YOUR PROGRAM RUNS BEFORE COMMITTING.
 ### AVOID MAKING OTHER'S CODE BREAK.
@@ -28,6 +29,11 @@ ui <- tagList(
             the preaching of hatred and intolerance can plant terrorism within the country. The FBI
             also mentions that hate itself is not a crime, and the FBI must be careful to protect
             freedom of speech and other civil liberties."),
+          p("The data we have worked with covers information on the amount of hate crimes that happen within the years of
+            1991 to 2014. We see that there is a major difference in the amount of hate crimes that happened to Muslims
+            and the amount that happened to Catholics. We also looked at major events and how those affected the rates of 
+            crime towards minority populations. Hate crimes continue to rise in the current political climate as
+            continues research is being done and updated."),
           
           h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map'),
@@ -62,8 +68,15 @@ ui <- tagList(
       )  
     ),
     tabPanel(
-      "History and Hate Crime",
-      h3("Rahma's")
+      "History and Hate Crime", 
+      mainPanel(
+      plotOutput("plot_9_11", align = 'center'), 
+      p("info"),
+      plotOutput("LGBT"),
+      p("info"),
+      plotOutput("black_white"),
+      p("info")
+      )
     ),
     tabPanel(
       "Religious Hate Crime",
