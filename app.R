@@ -3,14 +3,11 @@ library(dplyr)
 library(scales)
 library(shiny)
 
-<<<<<<< HEAD
 
-=======
 ## Things to install!
-# install.packages("tigris")
-# install.packages("leaflet")
-# install.packages("shinythemes")
->>>>>>> 47a36eb5e94458eb3278b6111e21797aa0744668
+install.packages("tigris")
+install.packages("leaflet")
+ install.packages("shinythemes")
 
 source("user-interface.R")
 source("analysis.R")
@@ -111,6 +108,8 @@ my_server <- function(input, output) {
   
   
   # Ghina's Code
+  
+  
   
 }
 
