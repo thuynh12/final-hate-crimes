@@ -99,7 +99,7 @@ my_server <- function(input, output) {
   })
   
   output$year_status <- renderText({
-    result <- paste("Overall Look Of Hate Crimes in America in", input$slider_year)
+    result <- paste("Hate Crimes in America in", input$slider_year)
     result  
   })
   
