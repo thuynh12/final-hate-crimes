@@ -1,0 +1,1 @@
+read.csv('data/hate_crime.csv', stringsAsFactors = FALSE)
