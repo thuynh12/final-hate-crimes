@@ -44,7 +44,13 @@ by.year <- count.by.year(hate.crimes, data.frame(year, hate_crimes = 0))
 # Meesha's Section
 
 
+select_groups <- filter(hate.crimes, bias_motivation == c("Anti-Lesbian, Gay, Bisexual, or Transgender, Mixed Group (LGBT)", "Anti-Catholic",
+                                                          "Anti-Male Homosexual (Gay)","Anti-Female Homosexual (Lesbian)","Anti-Islamic (Muslem)",
+                                                          "Anti-Black or African American"))
 
+bias_motivation_stats <- summarize(select_groups , mean = mean(count, na.rm = TRUE),
+                                   median = median(count, na.rm = TRUE), min = min(count, na.rm = TRUE), 
+                                   max = max(count, na.rm = TRUE))
 
 
 
