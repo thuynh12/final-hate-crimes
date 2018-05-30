@@ -30,16 +30,18 @@ ui <- tagList(
             freedom of speech and other civil liberties."),
           
           h3(textOutput('year_status'), align = 'center'),
-          leafletOutput('overall_map')
+          leafletOutput('overall_map'),
+          h3("Resources:"),
+          p(a("FBI's Hate Crime"), href = "https://www.fbi.gov/investigate/civil-rights/hate-crimes")
           
         )
       )
     ),
     tabPanel(
-      "Mapping Hate Crimes By Bias & Year",
+      "Mapping Hate Crimes",
       sidebarLayout(
         sidebarPanel(
-          h3("Sections"),
+          h3("Sect Bias and Year"),
           selectInput(
             'select_bias',
             label = "Select Bias",
@@ -49,11 +51,11 @@ ui <- tagList(
             'select_year',
             label = "Select Year",
             choices = unique(hate.crimes$year)
-          )
-          
+          ),
+          width = 2
         ),
         mainPanel(
-          h3("Hate Crimes By Bias and Year"),
+          h3("Hate Crimes By Bias and Year", align = 'center'),
           leafletOutput('hate_map')
           
         )
