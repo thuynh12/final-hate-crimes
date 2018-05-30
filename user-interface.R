@@ -25,7 +25,7 @@ ui <- fluidPage(
       h3("Ghina's")
     ),
     tabPanel(
-      "Specific Event and Hate Crime",
+      "General Data Table of Selected Crimes",
       h3("Meesha's")
     )
   )
