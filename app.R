@@ -3,6 +3,11 @@ library(dplyr)
 library(scales)
 library(shiny)
 
+## Things to install!
+# install.packages("tigris")
+# install.packages("leaflet")
+# install.packages("shinythemes")
+
 source("user-interface.R")
 source("analysis.R")
 
@@ -89,7 +94,10 @@ my_server <- function(input, output) {
     return(map)
   })
   
-  
+  output$year_status <- renderText({
+    result <- paste("Overall Look Of Hate Crimes in America in", input$slider_year)
+    result  
+  })
   
   
   # Rahma's Code

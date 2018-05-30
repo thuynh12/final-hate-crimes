@@ -7,28 +7,26 @@ source("analysis.R")
 
 ### TRY TO KEEP THE CODE NEAT. MAKE SURE YOUR PROGRAM RUNS BEFORE COMMITTING.
 ### AVOID MAKING OTHER'S CODE BREAK.
-ui <- fluidPage(
-  titlePanel("Hate Crimes Across the United States"),
-  
-  tabsetPanel(
+ui <- tagList(
+  navbarPage(
+    theme = shinythemes::shinytheme("darkly"),
+    title = "Hate Crimes Across the United States",
     tabPanel(
-      "Welcome",
-      
-      
+      "Home",
       sidebarLayout(
         sidebarPanel(
-          selectInput('slider_year', label = "Select Year",
-                      choices = unique(hate.crimes$year))
-        ),
+          selectInput('slider_year', label = "Select A Year",
+                       choices = unique(hate.crimes$year)), width = 2
+        ), 
         mainPanel(
-          h3("Overall Look Of Hate Crimes in America", align = 'center'),
+          h2(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map')
+          
         )
-      )      
-      
+      )
     ),
     tabPanel(
-      "Tracy's Mapping Hate Crimes",
+      "Mapping Hate Crimes By Bias & Year",
       sidebarLayout(
         sidebarPanel(
           h3("Sections"),
@@ -49,7 +47,7 @@ ui <- fluidPage(
           leafletOutput('hate_map')
           
         )
-      )
+      )  
     ),
     tabPanel(
       "History and Hate Crime",
@@ -61,7 +59,11 @@ ui <- fluidPage(
     ),
     tabPanel(
       "Specific Event and Hate Crime",
-      h3("Meesha's")
+      h3("Meesha's") 
     )
+    
   )
+  
 )
+  
+
