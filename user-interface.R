@@ -78,13 +78,8 @@ ui <- tagList(
       h3("Ghina's")
     ),
     tabPanel(
-<<<<<<< HEAD
       "General Data Table of Selected Crimes",
-      h3("Meesha's")
-=======
-      "Specific Event and Hate Crime",
       h3("Meesha's") 
->>>>>>> a5a528b4637ac4521f47bc6726c32137004c47a3
     )
     
   )
