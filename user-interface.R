@@ -4,6 +4,7 @@ library(geojson) # tracy's
 library(geojsonio) # tracy's
 
 source("analysis.R")
+source("rahma.kamel.R")
 
 ### TRY TO KEEP THE CODE NEAT. MAKE SURE YOUR PROGRAM RUNS BEFORE COMMITTING.
 ### AVOID MAKING OTHER'S CODE BREAK.
@@ -62,8 +63,15 @@ ui <- tagList(
       )  
     ),
     tabPanel(
-      "History and Hate Crime",
-      h3("Rahma's")
+      "History and Hate Crime", 
+      mainPanel(
+      plotOutput("plot_9_11", align = 'center'), 
+      p("info"),
+      plotOutput("LGBT"),
+      p("info"),
+      plotOutput("black_white"),
+      p("info")
+      )
     ),
     tabPanel(
       "Religious Hate Crime",

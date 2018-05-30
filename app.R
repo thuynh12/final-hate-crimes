@@ -3,14 +3,11 @@ library(dplyr)
 library(scales)
 library(shiny)
 
-<<<<<<< HEAD
-
-=======
 ## Things to install!
 # install.packages("tigris")
 # install.packages("leaflet")
 # install.packages("shinythemes")
->>>>>>> 47a36eb5e94458eb3278b6111e21797aa0744668
+
 
 source("user-interface.R")
 source("analysis.R")
@@ -100,11 +97,46 @@ my_server <- function(input, output) {
   
   output$year_status <- renderText({
     result <- paste("Hate Crimes in America in", input$slider_year)
-    result  
+    result 
+    
   })
   
-  
-  # Rahma's Code
+ output$plot_9_11 <- renderPlot({
+     ggplot(data_9_11) +
+     geom_histogram(mapping = aes(x = year, y = count, fill = year == 2001),
+                    stat = "identity") +
+     theme(legend.position = "none") +
+     labs(
+       title = "Pre and Post 9/11 Hate Crimes Against Muslims in America",
+       y = "Count (Number of Single Crimes Committed)",
+       x = "Year (1991 - 2014)"
+     )  
+ }) 
+ 
+ 
+ output$LGBT <- renderPlot({
+   ggplot(data_LGBTQ) +
+     geom_histogram(mapping = aes(x = year, y = count, fill = year == 2000), stat = "identity") +
+     theme(legend.position = "none") +
+     labs(
+       title = "Hate Crimes Against the LGBTQ+ Community",
+       y = "Count (Number of Single Crimes Committed)",
+       x = "Year (1991 - 2014)"
+     )
+ })
+ 
+ output$black_white <- renderPlot({
+   ggplot(data_black_white) +
+    geom_histogram(mapping = aes(x = year, y = count, fill = bias_motivation), 
+                    stat = "identity", position = "dodge") +
+     labs(
+       title = "Comparing Hate Crimes Against Whites and Blacks",
+       y = "Count (Number of Single Crimes Committed)",
+       x = "Year (1991 - 2014)", 
+       fill = "Motivation of Hate Crimes"
+     )
+   
+ })
   
   
   # Meesha's Code
