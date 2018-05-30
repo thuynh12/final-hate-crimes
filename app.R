@@ -3,11 +3,18 @@ library(dplyr)
 library(scales)
 library(shiny)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d13df2a0f8a99c131ca3886a4a8a116db240bf6
 ## Things to install!
 # install.packages("tigris")
 # install.packages("leaflet")
 # install.packages("shinythemes")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d13df2a0f8a99c131ca3886a4a8a116db240bf6
 
 source("user-interface.R")
 source("analysis.R")
