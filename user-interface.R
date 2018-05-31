@@ -29,6 +29,11 @@ ui <- tagList(
             the preaching of hatred and intolerance can plant terrorism within the country. The FBI
             also mentions that hate itself is not a crime, and the FBI must be careful to protect
             freedom of speech and other civil liberties."),
+          p("The data we have worked with covers information on the amount of hate crimes that happen within the years of
+            1991 to 2014. We see that there is a major difference in the amount of hate crimes that happened to Muslims
+            and the amount that happened to Catholics. We also looked at major events and how those affected the rates of 
+            crime towards minority populations. Hate crimes continue to rise in the current political climate as
+            continues research is being done and updated."),
           
           h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map'),
@@ -70,7 +75,17 @@ ui <- tagList(
       plotOutput("LGBT"),
       p("info"),
       plotOutput("black_white"),
-      p("info")
+      p("Looking at the visualizations, anti-White hate crimes vary and are at times higher than
+        that of anti-Black hate crimes. It is important to note the population accountability. 
+        The sample of the White population includes many groups that were marginalized historically 
+        in the United States. For instance, many Jewish, Italians and Greeks are taken into account 
+        as White. Another note to make is that many anti-Black hate crimes are more frequently 
+        underreported or are not accounted for in general because of the societal discrimination structures. 
+
+        Moreover, from the years 1991-2014 anti-Black hate crimes are clearly high. 
+        This is a crucial point that is being made through this analysis. Ant-Black hate crimes are 
+        significantly higher and this is due to many historical and current events that happen day 
+        to day in our contemporary society.")
       )
     ),
     tabPanel(
