@@ -68,15 +68,23 @@ ui <- tagList(
       )  
     ),
     tabPanel(
-      "History and Hate Crime", 
+      "History and Hate Crimes", 
       mainPanel(
-      plotOutput("plot_9_11"), 
+      h1("History and Hate Crimes", align = "center"),
+      h3("Analyzing how different historical events have impacted hate crimes and how often they occur.
+         Below we have chosen to analyze trends of hate crimes on Muslims before and after 9/11, hate
+         crimes on LGBTQ+ overtime specifically analyzing 2000 when same sex marriage was passed in Vermont, 
+         making it the first state to do so, and finally the correlation of hate crimes against white and black
+         people overtime"),
+      plotOutput("plot_9_11"),
+      p(""),
       p("The above visualization documents the developement of Anti-Muslim hate crimes over the years. 
         The blue bar represents 2001 which is the year that 9/11 occured. Notably, after 2001 the count of
         crimes against Muslims increased significantly. This is because people connected an extremist claiming 
         to follow religion to justify his violence when in reality Islam is a very peaceful religion. The data
         clearly shows a constant increase and trend line forming after 2001."),
       plotOutput("LGBT"),
+      p(""),
       p("Hate crimes against the LGBTQ+ community have always been constant. Depending on the year and the 
          political climate crimes will fluctuate averaging around 400 cases a year. The blue bar represents
         2000, which is the year that Vermont, was the first state to legalize same sex marriage. The count for
@@ -84,6 +92,7 @@ ui <- tagList(
         same sex marriage or it can be an unrelated trend. This data very effectively visualizes the hardships that
         the LGBTQ+ community has had to go through and creates a pattern that we can work to avoid."),
       plotOutput("black_white"),
+      p(""),
       p("Looking at the visualizations, anti-White hate crimes vary and are at times higher than
         that of anti-Black hate crimes. It is important to note the population accountability. 
         The sample of the White population includes many groups that were marginalized historically 
