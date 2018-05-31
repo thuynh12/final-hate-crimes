@@ -134,8 +134,30 @@ ui <- tagList(
           width = 2
         ),
         mainPanel(
+          h3("Overview"),
+          p("A hate crimes is defined as a crime against an individual based on their background or chracterstics which
+            make that person diverse from the majority. In the United States many are targeted based 
+            on such aspects which explains one main focus of our
+            data which is bias motivation. The data table displays diverse groups
+            (based on bias motivation) and the number of people within
+            those groups who have been victimized by prejudice in the United States. The data was
+            gathered from 1991-2014 and focuses on those who are Anti-Lesbian, Gay, Bisexual, 
+            or Transgender, Mixed Group (LGBT), Anti-Catholic, Anti-Male Homosexual (Gay), 
+            Anti-Female Homosexual (Lesbian), Anti-Islamic (Muslem),
+            Anti-Black or African American. The plot displays a visual of the hate crimes
+            throughout our chosen time period and it clearly shows
+            that Ant-Black or African American bias remains the highest bias motivation throughout every 
+            year from 1991-2014. The high numbers could be explained by the median attention given to the group. 
+            Regardless of Whether the attention reflects positively or negatively on the
+            group, those who are Anti-African American will react negatively. Overall, the data reveals consistently 
+            high numbers of opression towards African Americans and the other groups also hold consistent numbers
+            of crimes against them throughout the years"),
           tableOutput('minority_table'),
-          plotOutput('sum_plot')
+          plotOutput('sum_plot'),
+          h3("Resources:"),
+          p(a("History of Hate Crime Tracking in the US"), href =  
+                               "https://www.cnn.com/2017/01/05/health/hate-crimes-tracking-history-fbi/index.html")
+          
         )
       )
     )
