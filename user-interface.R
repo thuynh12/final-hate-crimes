@@ -83,7 +83,8 @@ ui <- tagList(
       "History and Hate Crimes", 
       mainPanel(
       h1("History and Hate Crimes", align = "center"),
-      h3("Analyzing how different historical events have impacted hate crimes and how often they occur.
+      p("Analyzing how different historical events have impacted hate crimes and how often they occur has 
+         allowed us to draw trend lines and patterns over the years.
          Below we have chosen to analyze trends of hate crimes on Muslims before and after 9/11, hate
          crimes on LGBTQ+ overtime specifically analyzing 2000 when same sex marriage was passed in Vermont, 
          making it the first state to do so, and finally the correlation of hate crimes against white and black
