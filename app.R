@@ -2,9 +2,13 @@ library(ggplot2)
 library(dplyr)
 library(scales)
 library(shiny)
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
+=======
+library(DT)
+>>>>>>> f088cc54702ec484681b41b056b919eed11fa725
 
 >>>>>>> 4702db4dd39bbc553417693930ff0c9fc3672126
 ## Things to install!
@@ -144,12 +148,41 @@ my_server <- function(input, output) {
   
   
   # Meesha's Code
+  overview_table <- reactive({
+    minority <- select_groups %>% 
+      filter(year == input$m.year) %>% 
+      group_by(Bias) 
+    minority
+  })
   
+  output$minority_table <- renderTable({
+    sum.table <- overview_table() %>% 
+      summarize(Mean = mean(count, na.rm = TRUE),
+                Median = median(count, na.rm = TRUE),
+                Min = min(count, na.rm = TRUE), 
+                Max = max(count, na.rm = TRUE))
+    sum.table
+   })
   
+  output$sum_plot <- renderPlot({
+    ggplot(select_groups) +
+      geom_histogram(mapping = aes(x = year, y = count, fill = Bias), stat = "identity") +
+      ggtitle("Number of Hate Crimes from 1991-2014 based on Minority Groups") +
+      labs(y = "Count(Number of Single Crimes Committed",
+           x = "Year (1991-2014)",
+           fill = "Motivation for Hate Crimes"
+      )
+  })
   # Ghina's Code
+  output$plot_catholic <- renderPlot({
+    catholic.plot
+  })
   
+  output$plot_muslim <- renderPlot({
+    muslim.plot
+  })
   
-  
+
 }
 
 shinyApp(ui, my_server)

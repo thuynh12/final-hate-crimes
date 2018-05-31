@@ -70,10 +70,19 @@ ui <- tagList(
     tabPanel(
       "History and Hate Crime", 
       mainPanel(
-      plotOutput("plot_9_11", align = 'center'), 
-      p("info"),
+      plotOutput("plot_9_11"), 
+      p("The above visualization documents the developement of Anti-Muslim hate crimes over the years. 
+        The blue bar represents 2001 which is the year that 9/11 occured. Notably, after 2001 the count of
+        crimes against Muslims increased significantly. This is because people connected an extremist claiming 
+        to follow religion to justify his violence when in reality Islam is a very peaceful religion. The data
+        clearly shows a constant increase and trend line forming after 2001."),
       plotOutput("LGBT"),
-      p("info"),
+      p("Hate crimes against the LGBTQ+ community have always been constant. Depending on the year and the 
+         political climate crimes will fluctuate averaging around 400 cases a year. The blue bar represents
+        2000, which is the year that Vermont, was the first state to legalize same sex marriage. The count for
+        that year is notably less than the other years. This could have something to do with the legalization of 
+        same sex marriage or it can be an unrelated trend. This data very effectively visualizes the hardships that
+        the LGBTQ+ community has had to go through and creates a pattern that we can work to avoid."),
       plotOutput("black_white"),
       p("Looking at the visualizations, anti-White hate crimes vary and are at times higher than
         that of anti-Black hate crimes. It is important to note the population accountability. 
@@ -90,11 +99,28 @@ ui <- tagList(
     ),
     tabPanel(
       "Religious Hate Crime",
-      h3("Ghina's")
+      h3("Catholic Plot"),
+      plotOutput('plot_catholic'),
+      h3("Muslim Plot"),
+      plotOutput('plot_muslim')
     ),
     tabPanel(
       "General Data Table of Selected Crimes",
-      h3("Meesha's") 
+      sidebarLayout(
+        sidebarPanel(
+          h3("Selection"),
+          selectInput(
+            'm.year', 
+            label = "Select Year",
+            choices = unique(hate.crimes$year)
+          ),
+          width = 2
+        ),
+        mainPanel(
+          tableOutput('minority_table'),
+          plotOutput('sum_plot')
+        )
+      )
     )
     
   )
