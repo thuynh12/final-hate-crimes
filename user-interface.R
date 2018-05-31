@@ -1,7 +1,7 @@
 library(shiny)
-library(leaflet) # it's tracy's plz don't mind
-library(geojson) # tracy's
-library(geojsonio) # tracy's
+library(leaflet) 
+library(geojson) 
+library(geojsonio) 
 
 source("analysis.R")
 source("rahma.kamel.R")
@@ -107,5 +107,4 @@ ui <- tagList(
   )
   
 )
-  
 
