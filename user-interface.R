@@ -99,10 +99,27 @@ ui <- tagList(
     ),
     tabPanel(
       "Religious Hate Crime",
-      h3("Catholic Plot"),
+      h3("Catholic Hate Crimes", align = 'center'),
       plotOutput('plot_catholic'),
-      h3("Muslim Plot"),
-      plotOutput('plot_muslim')
+      h3("Muslim Hate Crimes", align = 'center'),
+      plotOutput('plot_muslim'),
+      h3("Comparing Religious Hate Crimes", align = 'center'),
+      p(" Viewing the Anti-Islamic (Muslem) histogram and the Anti-Catholic histogram, we see that the level of Anti-Islamic        hate crimes is skyrocketting much higher than those of the Anti-Catholic hate crimes. The Muslim hate crimes on 
+      average are in the hundreds wheraas those of the Catholics are below one hundred on average. 
+      Going into the Anti-Islamic trend, we see that it hits an ultimate high right after 2000. This marks an 
+      important event of 9/11 that were associated to terrorism acts in the United States. Many people generalized
+      and associated violent people with a violent religion. Hate crimes towards Muslims increased after this because 
+      fear that plagued America during this time. Until now we see that there is a higher level of hate crimes towards
+      muslims after this event. Prior to the 9/11 attacks, there was not as many.
+      Another important note in the differences of hate crimes could be due to the fact that many Muslims are 
+      more distinguishable than people of other religions (with exceptions). Some Muslim women wear the head scarf
+      or hijab that covers their hair which makes them stand out more and can be an easy target for people to 
+      unjustly associate them with the terrorism attacks that happen all over the world. 
+      Being different has always created a fear in people. In this society, it so happens to be Muslims. The
+      American population comprises of a greater percentage of people from the sects of Christianity than those of Muslims. 
+      With the Catholic hate crimes we see that there is a pretty constant trend. They began to increase more or less
+      in 2005. This could be due to religious views changing and moving towards a more liberal society that does
+      not put as much value on religious beliefs. The value of religiousity has changed over time.")
     ),
     tabPanel(
       "General Data Table of Selected Crimes",
