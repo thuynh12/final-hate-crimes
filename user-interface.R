@@ -70,7 +70,7 @@ ui <- tagList(
     tabPanel(
       "History and Hate Crime", 
       mainPanel(
-      plotOutput("plot_9_11", align = 'center'), 
+      plotOutput("plot_9_11"), 
       p("info"),
       plotOutput("LGBT"),
       p("info"),
