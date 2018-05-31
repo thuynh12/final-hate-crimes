@@ -37,6 +37,7 @@ ui <- tagList(
           
           h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map'),
+          strong("Click on a State for exact count."),
           h3("Resources:"),
           p(a("FBI's Hate Crime"), href = "https://www.fbi.gov/investigate/civil-rights/hate-crimes")
           
@@ -61,9 +62,20 @@ ui <- tagList(
           width = 2
         ),
         mainPanel(
+          h3("Mapping Hate Crimes In America"),
+          p("The American South has some very intense stereotypes of being more
+            racist and intolerant towards People of Color. This map is to explore the 
+            concept and prenotion that Southerners are more racist than the rest
+            of the countries. This mapping shows the distribution of hate crimes by 
+            types of bias and year."),
           h3("Hate Crimes By Bias and Year", align = 'center'),
-          leafletOutput('hate_map')
-          
+          leafletOutput('hate_map'), 
+          strong("Click on a State to see exact number"),
+          p("However, you can see that the most hate crimes commited lie outside the South.
+            This may be due to the population and demographic of other states. Some states
+            may have higher populations for different racial groups. In addition, this map 
+            does not take account for state population, therefore for California and Texas
+            being the most populous may have higher counts of hate crimes.")
         )
       )  
     ),
@@ -122,7 +134,7 @@ ui <- tagList(
       not put as much value on religious beliefs. The value of religiousity has changed over time.")
     ),
     tabPanel(
-      "General Data Table of Selected Crimes",
+      "General Data Table of Hate Crimes Against Select Minorities",
       sidebarLayout(
         sidebarPanel(
           h3("Selection"),
@@ -134,7 +146,7 @@ ui <- tagList(
           width = 2
         ),
         mainPanel(
-          h3("Overview"),
+          h3("Hate Crimes Against Selected Minorities"),
           p("A hate crimes is defined as a crime against an individual based on their background or chracterstics which
             make that person diverse from the majority. In the United States many are targeted based 
             on such aspects which explains one main focus of our
