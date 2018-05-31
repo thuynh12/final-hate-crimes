@@ -2,15 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(scales)
 library(shiny)
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
-=======
-library(DT)
->>>>>>> f088cc54702ec484681b41b056b919eed11fa725
-
->>>>>>> 4702db4dd39bbc553417693930ff0c9fc3672126
+ 
 ## Things to install!
 # install.packages("tigris")
 # install.packages("leaflet")

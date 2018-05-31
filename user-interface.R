@@ -1,7 +1,7 @@
 library(shiny)
-library(leaflet) # it's tracy's plz don't mind
-library(geojson) # tracy's
-library(geojsonio) # tracy's
+library(leaflet) 
+library(geojson) 
+library(geojsonio) 
 
 source("analysis.R")
 source("rahma.kamel.R")
@@ -37,6 +37,7 @@ ui <- tagList(
           
           h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map'),
+          strong("Click on a State for exact count."),
           h3("Resources:"),
           p(a("FBI's Hate Crime"), href = "https://www.fbi.gov/investigate/civil-rights/hate-crimes")
           
@@ -61,9 +62,20 @@ ui <- tagList(
           width = 2
         ),
         mainPanel(
+          h3("Mapping Hate Crimes In America"),
+          p("The American South has some very intense stereotypes of being more
+            racist and intolerant towards People of Color. This map is to explore the 
+            concept and prenotion that Southerners are more racist than the rest
+            of the countries. This mapping shows the distribution of hate crimes by 
+            types of bias and year."),
           h3("Hate Crimes By Bias and Year", align = 'center'),
-          leafletOutput('hate_map')
-          
+          leafletOutput('hate_map'), 
+          strong("Click on a State to see exact number"),
+          p("However, you can see that the most hate crimes commited lie outside the South.
+            This may be due to the population and demographic of other states. Some states
+            may have higher populations for different racial groups. In addition, this map 
+            does not take account for state population, therefore for California and Texas
+            being the most populous may have higher counts of hate crimes.")
         )
       )  
     ),
@@ -108,13 +120,30 @@ ui <- tagList(
     ),
     tabPanel(
       "Religious Hate Crime",
-      h3("Catholic Plot"),
+      h3("Catholic Hate Crimes", align = 'center'),
       plotOutput('plot_catholic'),
-      h3("Muslim Plot"),
-      plotOutput('plot_muslim')
+      h3("Muslim Hate Crimes", align = 'center'),
+      plotOutput('plot_muslim'),
+      h3("Comparing Religious Hate Crimes", align = 'center'),
+      p(" Viewing the Anti-Islamic (Muslem) histogram and the Anti-Catholic histogram, we see that the level of Anti-Islamic        hate crimes is skyrocketting much higher than those of the Anti-Catholic hate crimes. The Muslim hate crimes on 
+      average are in the hundreds wheraas those of the Catholics are below one hundred on average. 
+      Going into the Anti-Islamic trend, we see that it hits an ultimate high right after 2000. This marks an 
+      important event of 9/11 that were associated to terrorism acts in the United States. Many people generalized
+      and associated violent people with a violent religion. Hate crimes towards Muslims increased after this because 
+      fear that plagued America during this time. Until now we see that there is a higher level of hate crimes towards
+      muslims after this event. Prior to the 9/11 attacks, there was not as many.
+      Another important note in the differences of hate crimes could be due to the fact that many Muslims are 
+      more distinguishable than people of other religions (with exceptions). Some Muslim women wear the head scarf
+      or hijab that covers their hair which makes them stand out more and can be an easy target for people to 
+      unjustly associate them with the terrorism attacks that happen all over the world. 
+      Being different has always created a fear in people. In this society, it so happens to be Muslims. The
+      American population comprises of a greater percentage of people from the sects of Christianity than those of Muslims. 
+      With the Catholic hate crimes we see that there is a pretty constant trend. They began to increase more or less
+      in 2005. This could be due to religious views changing and moving towards a more liberal society that does
+      not put as much value on religious beliefs. The value of religiousity has changed over time.")
     ),
     tabPanel(
-      "General Data Table of Selected Crimes",
+      "General Data Table of Hate Crimes Against Select Minorities",
       sidebarLayout(
         sidebarPanel(
           h3("Selection"),
@@ -126,8 +155,35 @@ ui <- tagList(
           width = 2
         ),
         mainPanel(
+          h3("Hate Crimes Against Selected Minorities"),
+          p("A hate crimes is defined as a crime against an individual based on their background or chracterstics which
+            make that person diverse from the majority. In the United States many are targeted based 
+            on such aspects which explains one main focus of our
+            data which is bias motivation. The data table displays diverse groups
+            (based on bias motivation) and the number of people within
+            those groups who have been victimized by prejudice in the United States. The data was
+            gathered from 1991-2014 and focuses on those who are Anti-Lesbian, Gay, Bisexual, 
+            or Transgender, Mixed Group (LGBT), Anti-Catholic, Anti-Male Homosexual (Gay), 
+            Anti-Female Homosexual (Lesbian), Anti-Islamic (Muslem),
+            Anti-Black or African American. The plot displays a visual of the hate crimes
+            throughout our chosen time period and it clearly shows
+            that Ant-Black or African American bias remains the highest bias motivation throughout every 
+            year from 1991-2014. The high numbers could be explained by the median attention given to the group. 
+            Regardless of Whether the attention reflects positively or negatively on the
+            group, those who are Anti-African American will react negatively. Overall, the data reveals consistently 
+            high numbers of opression towards African Americans and the other groups also hold consistent numbers
+            of crimes against them throughout the years"),
           tableOutput('minority_table'),
-          plotOutput('sum_plot')
+          strong("This is a table summarizing counts of hate crimes commited during a specific year. 
+            You can select the year with the drop down menu on the left."),
+          p(""),
+          plotOutput('sum_plot'),
+          p("This graph shows the overall hate crime distribution from 1991 to 2014"),
+          p(""),
+          h3("Resources:"),
+          p(a("History of Hate Crime Tracking in the US"), href =  
+                               "https://www.cnn.com/2017/01/05/health/hate-crimes-tracking-history-fbi/index.html")
+          
         )
       )
     )
@@ -135,5 +191,4 @@ ui <- tagList(
   )
   
 )
-  
 
