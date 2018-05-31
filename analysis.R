@@ -70,7 +70,7 @@ muslim_motivation <- filter(hate.crimes, bias_motivation == c('Anti-Islamic (Mus
 #Creating the data visualization for Muslim hate crimes over time
 
 muslim.plot <- ggplot(muslim_motivation) + 
-  geom_histogram(mapping = aes(x = year, y = count, fill = bias_motivation), stat = "identity") + scale_fill_brewer(
+  geom_histogram(mapping = aes(x = year, y = count), fill = "red", stat = "identity") + scale_fill_brewer(
     palette = "Greens") + theme(legend.position = "none")
 
 #Compare the trend of anti-Catholic hate crimes over time.
@@ -80,7 +80,7 @@ catholic_motivation <- filter(hate.crimes, bias_motivation == c('Anti-Catholic')
   group_by(year)
 
 catholic.plot <- ggplot(catholic_motivation) + 
-  geom_histogram(mapping = aes(x = year, y = count, fill = bias_motivation), stat = "identity") + scale_fill_brewer(
+  geom_histogram(mapping = aes(x = year, y = count), fill = "blue", stat = "identity") + scale_fill_brewer(
     palette = "Blues") + theme(legend.position = "none")
 
 
