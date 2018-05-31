@@ -9,15 +9,18 @@ library(tidyr)
 crimes_data <- read.csv("file:///C:/Users/meesh/final-hate-crimes/hate_crime.csv", stringsAsFactors = TRUE)
 
 #Filtering data set for crimes specific to our chosen groups.
-select_groups <- filter(crimes_data, bias_motivation == c("Anti-Lesbian, Gay, Bisexual, or Transgender, Mixed Group (LGBT)", "Anti-Catholic",
+select_groups <- filter(hate.crimes, bias_motivation == c("Anti-Lesbian, Gay, Bisexual, or Transgender, Mixed Group (LGBT)", "Anti-Catholic",
                                                           "Anti-Male Homosexual (Gay)","Anti-Female Homosexual (Lesbian)","Anti-Islamic (Muslem)",
-                                                          "Anti-Black or African American"))
+                                                          "Anti-Black or African American")) %>%  filter(year == 2012) %>% 
+  group_by(bias_motivation)
 
 # Calculates the mean, meadian, min, and max for the total count in the data set. 
 bias_motivation_stats <- summarize(select_groups , mean = mean(count, na.rm = TRUE),
                                    median = median(count, na.rm = TRUE), min = min(count, na.rm = TRUE), 
                                    max = max(count, na.rm = TRUE))
-
+test <- select_groups %>% 
+  summarize(mean = mean(count, na.rm = TRUE), median = median(count, na.rm = TRUE), min = min(count, na.rm = TRUE), 
+            max = max(count, na.rm = TRUE))
 
 server <- function(input, output) {
   
@@ -37,12 +40,11 @@ server <- function(input, output) {
       
       ggplot(select_groups) +
         geom_histogram(mapping = aes(x = year, y = count, fill = bias_motivation), stat = "identity", width = .5, height = 50 ) +
-        
-      ggtitle("Number of Hate Crimes from 1991-2014 based on Minority Groups") +
-     labs(y = "Count(Number of Single Crimes Committed",
-      x = "Year (1991-2014)",
-      fill = "Motivation for Hate Crimes"
+        ggtitle("Number of Hate Crimes from 1991-2014 based on Minority Groups") +
+        labs(y = "Count(Number of Single Crimes Committed",
+             x = "Year (1991-2014)",
+             fill = "Motivation for Hate Crimes"
       )
-    })
+  })
 }
 

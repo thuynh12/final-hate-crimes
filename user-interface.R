@@ -87,7 +87,21 @@ ui <- tagList(
     ),
     tabPanel(
       "General Data Table of Selected Crimes",
-      h3("Meesha's") 
+      sidebarLayout(
+        sidebarPanel(
+          h3("Selection"),
+          selectInput(
+            'm.year', 
+            label = "Select Year",
+            choices = unique(hate.crimes$year)
+          ),
+          width = 2
+        ),
+        mainPanel(
+          tableOutput('minority_table'),
+          plotOutput('sum_plot')
+        )
+      )
     )
     
   )
