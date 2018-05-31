@@ -80,7 +80,10 @@ ui <- tagList(
     ),
     tabPanel(
       "Religious Hate Crime",
-      h3("Ghina's")
+      h3("Catholic Plot"),
+      plotOutput('plot_catholic'),
+      h3("Muslim Plot"),
+      plotOutput('plot_muslim')
     ),
     tabPanel(
       "General Data Table of Selected Crimes",

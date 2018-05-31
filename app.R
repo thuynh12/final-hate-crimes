@@ -144,8 +144,13 @@ my_server <- function(input, output) {
   
   
   # Ghina's Code
+  output$plot_catholic <- renderPlot({
+    catholic.plot
+  })
   
-  
+  output$plot_muslim <- renderPlot({
+    muslim.plot
+  })
   
 }
 
