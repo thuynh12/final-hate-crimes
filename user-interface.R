@@ -71,11 +71,30 @@ ui <- tagList(
       "History and Hate Crime", 
       mainPanel(
       plotOutput("plot_9_11"), 
-      p("info"),
+      p("The above visualization documents the developement of Anti-Muslim hate crimes over the years. 
+        The blue bar represents 2001 which is the year that 9/11 occured. Notably, after 2001 the count of
+        crimes against Muslims increased significantly. This is because people connected an extremist claiming 
+        to follow religion to justify his violence when in reality Islam is a very peaceful religion. The data
+        clearly shows a constant increase and trend line forming after 2001."),
       plotOutput("LGBT"),
-      p("info"),
+      p("Hate crimes against the LGBTQ+ community have always been constant. Depending on the year and the 
+         political climate crimes will fluctuate averaging around 400 cases a year. The blue bar represents
+        2000, which is the year that Vermont, was the first state to legalize same sex marriage. The count for
+        that year is notably less than the other years. This could have something to do with the legalization of 
+        same sex marriage or it can be an unrelated trend. This data very effectively visualizes the hardships that
+        the LGBTQ+ community has had to go through and creates a pattern that we can work to avoid."),
       plotOutput("black_white"),
-      p("info")
+      p("Looking at the visualizations, anti-White hate crimes vary and are at times higher than
+        that of anti-Black hate crimes. It is important to note the population accountability. 
+        The sample of the White population includes many groups that were marginalized historically 
+        in the United States. For instance, many Jewish, Italians and Greeks are taken into account 
+        as White. Another note to make is that many anti-Black hate crimes are more frequently 
+        underreported or are not accounted for in general because of the societal discrimination structures. 
+
+        Moreover, from the years 1991-2014 anti-Black hate crimes are clearly high. 
+        This is a crucial point that is being made through this analysis. Ant-Black hate crimes are 
+        significantly higher and this is due to many historical and current events that happen day 
+        to day in our contemporary society.")
       )
     ),
     tabPanel(
