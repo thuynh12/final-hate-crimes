@@ -2,7 +2,7 @@ library(ggplot2)
 library(dplyr)
 library(scales)
 library(shiny)
-
+ 
 ## Things to install!
 # install.packages("tigris")
 # install.packages("leaflet")
