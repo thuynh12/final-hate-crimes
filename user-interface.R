@@ -165,7 +165,12 @@ ui <- tagList(
             high numbers of opression towards African Americans and the other groups also hold consistent numbers
             of crimes against them throughout the years"),
           tableOutput('minority_table'),
+          strong("This is a table summarizing counts of hate crimes commited during a specific year. 
+            You can select the year with the drop down menu on the left."),
+          p(""),
           plotOutput('sum_plot'),
+          p("This graph shows the overall hate crime distribution from 1991 to 2014"),
+          p(""),
           h3("Resources:"),
           p(a("History of Hate Crime Tracking in the US"), href =  
                                "https://www.cnn.com/2017/01/05/health/hate-crimes-tracking-history-fbi/index.html")
