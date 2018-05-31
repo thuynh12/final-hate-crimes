@@ -37,7 +37,7 @@ ui <- tagList(
           
           h3(textOutput('year_status'), align = 'center'),
           leafletOutput('overall_map'),
-          strong("Click on a State for exact count."),
+          strong("Click on a State for exact count of hate crimes."),
           h3("Resources:"),
           p(a("FBI's Hate Crime"), href = "https://www.fbi.gov/investigate/civil-rights/hate-crimes")
           
@@ -70,7 +70,8 @@ ui <- tagList(
             types of bias and year."),
           h3("Hate Crimes By Bias and Year", align = 'center'),
           leafletOutput('hate_map'), 
-          strong("Click on a State to see exact number"),
+          strong("Click on a State for exact count of hate crimes."),
+          p(""),
           p("However, you can see that the most hate crimes commited lie outside the South.
             This may be due to the population and demographic of other states. Some states
             may have higher populations for different racial groups. In addition, this map 
